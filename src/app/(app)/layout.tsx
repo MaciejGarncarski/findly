@@ -14,13 +14,12 @@ export default function AppLayout({
         width="full"
         height="12"
         p="4"
-        bg="whiteAlpha.300"
+        bg="InfoBackground"
         alignItems={"center"}
       >
         <Heading as="h1">Header</Heading>
         <ColorModeButton />
-
-        <Button asChild rounded={"xl"} size="xs" ml="auto">
+        <Button asChild variant="surface" rounded={"lg"} size="sm" ml="auto">
           <Link href="/auth/signin">Sign in</Link>
         </Button>
       </Flex>
