@@ -5,34 +5,56 @@ import { ClientOnly, IconButton, Skeleton, Span } from "@chakra-ui/react";
 import { ThemeProvider, useTheme } from "next-themes";
 import type { ThemeProviderProps } from "next-themes";
 import * as React from "react";
-import { LuMoon, LuSun } from "react-icons/lu";
+import { LuMonitor, LuMoon, LuSun } from "react-icons/lu";
 
 export interface ColorModeProviderProps extends ThemeProviderProps {}
 
 export function ColorModeProvider(props: ColorModeProviderProps) {
   return (
-    <ThemeProvider attribute="class" disableTransitionOnChange {...props} />
+    <ThemeProvider
+      enableSystem
+      attribute="class"
+      disableTransitionOnChange
+      {...props}
+    />
   );
 }
 
 export type ColorMode = "light" | "dark";
 
+type ThemeValue = "light" | "dark" | "system";
+
 export interface UseColorModeReturn {
   colorMode: ColorMode;
   setColorMode: (colorMode: ColorMode) => void;
   toggleColorMode: () => void;
+  theme: ThemeValue;
 }
 
 export function useColorMode(): UseColorModeReturn {
-  const { resolvedTheme, setTheme, forcedTheme } = useTheme();
+  const { resolvedTheme, setTheme, forcedTheme, theme } = useTheme();
   const colorMode = forcedTheme || resolvedTheme;
   const toggleColorMode = () => {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+    if (theme === "system") {
+      setTheme("dark");
+      return;
+    }
+
+    if (theme === "dark") {
+      setTheme("light");
+      return;
+    }
+
+    if (theme === "light") {
+      setTheme("system");
+      return;
+    }
   };
   return {
     colorMode: colorMode as ColorMode,
     setColorMode: setTheme,
     toggleColorMode,
+    theme: (theme || "system") as ThemeValue,
   };
 }
 
@@ -42,7 +64,12 @@ export function useColorModeValue<T>(light: T, dark: T) {
 }
 
 export function ColorModeIcon() {
-  const { colorMode } = useColorMode();
+  const { theme, colorMode } = useColorMode();
+
+  if (theme === "system") {
+    return <LuMonitor />;
+  }
+
   return colorMode === "dark" ? <LuMoon /> : <LuSun />;
 }
 
