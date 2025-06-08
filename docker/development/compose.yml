@@ -1,0 +1,45 @@
+services:
+  db:
+    image: postgres:17.4-alpine
+    container_name: findly-db
+    restart: always
+    environment:
+      PGUSER: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATABASE: findly
+      POSTGRES_DB: findly
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+    networks:
+      - app-network
+    volumes:
+      - findly-db-data:/var/lib/postgresql/data
+  app:
+    container_name: findly-app
+    build:
+      context: ../../
+      dockerfile: docker/development/Dockerfile
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../..:/app
+      - /app/node_modules
+    networks:
+      - app-network
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db/findly?schema=public
+      - NODE_ENV=development
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  findly-db-data:
+    driver: local
