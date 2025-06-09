@@ -28,8 +28,10 @@ export default function AppLayout({
         }}
       >
         <Heading as="h1">
-          <Image src={logo} alt="Findly" width={80} height={50} />
-          <VisuallyHidden>Findly</VisuallyHidden>
+          <Link href="/">
+            <Image src={logo} alt="Findly" width={80} height={50} />
+            <VisuallyHidden>Findly</VisuallyHidden>
+          </Link>
         </Heading>
         <Flex ml="auto" gap="4">
           <ColorModeButton />

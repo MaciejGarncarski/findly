@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
+    dynamicIO: true,
+    ppr: true,
+    useCache: true,
     optimizePackageImports: ["@chakra-ui/react"],
   },
   async redirects() {
@@ -17,7 +20,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  /* config options here */
 };
 
 export default nextConfig;
