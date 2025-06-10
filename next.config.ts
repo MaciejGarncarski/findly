@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
     dynamicIO: true,
     ppr: true,
     useCache: true,
+    cssChunking: true,
     optimizePackageImports: ["@chakra-ui/react"],
   },
   async redirects() {

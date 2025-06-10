@@ -1,19 +1,13 @@
 import { Category } from "@/features/homepage/components/category";
 import { Flex } from "@chakra-ui/react";
-
-import { IconType } from "react-icons";
-import {
-  BsFillBriefcaseFill,
-  BsHouse,
-  BsPhone,
-  BsWrench,
-} from "react-icons/bs";
+import { Briefcase, House, LucideIcon, Smartphone, Wrench } from "lucide-react";
+import { unstable_cacheLife, unstable_cacheTag } from "next/cache";
 
 type Categories = {
   title: string;
   category: string;
   color: string;
-  icon: IconType;
+  icon: LucideIcon;
 }[];
 
 const featuredCategories = [
@@ -21,40 +15,42 @@ const featuredCategories = [
     category: "job",
     color: "blue",
     title: "Jobs",
-    icon: BsFillBriefcaseFill,
+    icon: Briefcase,
   },
   {
     category: "real-estate",
     color: "green",
     title: "Real estate",
-    icon: BsHouse,
+    icon: House,
   },
   {
     category: "service",
     color: "purple",
     title: "Services",
-    icon: BsWrench,
+    icon: Wrench,
   },
   {
     category: "electronics",
     color: "orange",
     title: "Electronics",
-    icon: BsPhone,
+    icon: Smartphone,
   },
 ] satisfies Categories;
 
 async function getListings(): Promise<Record<string, number>> {
-  await new Promise((res) => {
-    setTimeout(() => {
-      res("");
-    }, 3000);
+  "use cache";
+  unstable_cacheTag("categories-homepage");
+  unstable_cacheLife({
+    stale: 600_000,
+    revalidate: 600_000 * 6,
+    expire: 600_000 * 6 * 2,
   });
 
   return {
-    job: 187,
-    "real-estate": 527,
-    service: 231,
-    electronics: 382,
+    job: Math.floor(Math.random() * 100),
+    "real-estate": Math.floor(Math.random() * 300),
+    service: Math.floor(Math.random() * 200),
+    electronics: Math.floor(Math.random() * 400),
   };
 }
 
@@ -62,7 +58,7 @@ export async function Categories() {
   const listings = await getListings();
 
   return (
-    <Flex mx="auto" gap="8">
+    <Flex gap="8" direction={"column"} lg={{ flexDir: "row" }}>
       {featuredCategories.map(({ category, color, title, icon }) => {
         return (
           <Category

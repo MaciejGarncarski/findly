@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Field,
   Flex,
@@ -7,10 +6,9 @@ import {
   Icon,
   Input,
   Text,
-  VisuallyHidden,
 } from "@chakra-ui/react";
-import { BiCurrentLocation, BiLocationPlus, BiSearch } from "react-icons/bi";
 import Form from "next/form";
+import { Locate, Search } from "lucide-react";
 
 export function Hero() {
   return (
@@ -46,10 +44,10 @@ export function Hero() {
         Discover amazing deals in your area or sell your items to thousands of
         buyers
       </Text>
-      <Form action="/search">
+      <Form action="/browse">
         <Flex
           bg="bg"
-          h="12rem"
+          w="20rem"
           rounded={"2xl"}
           px="4"
           py="4"
@@ -60,19 +58,27 @@ export function Hero() {
           flexDir={"column"}
           lg={{
             h: "16",
-            w: "40rem",
+            gap: "3",
+            w: "42rem",
             flexDir: "row",
           }}
         >
           <Field.Root>
-            <Flex alignItems={"center"} justifyContent={"center"} gap="1">
+            <Flex
+              alignItems={"center"}
+              justifyContent={"center"}
+              gap="1"
+              w="full"
+            >
               <Field.Label>
                 <Icon size={"lg"} color="fg.muted">
-                  <BiSearch />
+                  <Search />
                 </Icon>
               </Field.Label>
               <Input
                 variant="subtle"
+                size="lg"
+                rounded={"xl"}
                 placeholder="What are you looking for?"
                 name="q"
               />
@@ -80,16 +86,26 @@ export function Hero() {
           </Field.Root>
 
           <Field.Root>
-            <Flex alignItems={"center"} justifyContent={"center"} gap="1">
+            <Flex
+              alignItems={"center"}
+              justifyContent={"center"}
+              gap="1"
+              w="full"
+            >
               <Field.Label>
                 <Icon size={"lg"} color="fg.muted">
-                  <BiCurrentLocation />
+                  <Locate />
                 </Icon>
               </Field.Label>
-              <Input variant="subtle" placeholder="Location" name="l" />
+              <Input
+                rounded={"xl"}
+                size="lg"
+                variant="subtle"
+                placeholder="Location"
+                name="l"
+              />
             </Flex>
           </Field.Root>
-
           <Button
             lg={{ ml: "auto", w: "auto" }}
             w="full"

@@ -1,10 +1,17 @@
 import { Categories } from "@/features/homepage/components/categories";
-import { Flex, Heading, Skeleton, Text, VStack } from "@chakra-ui/react";
+import { Flex, Heading, Skeleton, Text } from "@chakra-ui/react";
 import { Suspense } from "react";
 
 export async function BrowseByCategory() {
   return (
-    <VStack bg="bg.muted" py="20" gap="16">
+    <Flex
+      flexDirection={"column"}
+      alignItems={"center"}
+      justifyContent={"center"}
+      bg="bg.muted"
+      py="20"
+      gap="16"
+    >
       <Flex
         alignItems={"center"}
         justifyContent={"center"}
@@ -20,16 +27,16 @@ export async function BrowseByCategory() {
       </Flex>
       <Suspense
         fallback={
-          <Flex mx="auto" gap="8">
-            <Skeleton w="14rem" h="10rem" rounded={"xl"} />
-            <Skeleton w="14rem" h="10rem" rounded={"xl"} />
-            <Skeleton w="14rem" h="10rem" rounded={"xl"} />
-            <Skeleton w="14rem" h="10rem" rounded={"xl"} />
+          <Flex gap="8" direction={"column"} lg={{ direction: "row" }}>
+            <Skeleton w="15rem" h="10rem" rounded={"xl"} />
+            <Skeleton w="15rem" h="10rem" rounded={"xl"} />
+            <Skeleton w="15rem" h="10rem" rounded={"xl"} />
+            <Skeleton w="15rem" h="10rem" rounded={"xl"} />
           </Flex>
         }
       >
         <Categories />
       </Suspense>
-    </VStack>
+    </Flex>
   );
 }

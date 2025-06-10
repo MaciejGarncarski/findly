@@ -1,9 +1,9 @@
-import { Button, Flex, Heading, VisuallyHidden } from "@chakra-ui/react";
-import "../globals.css";
+import { Box, Button, Flex, Heading, VisuallyHidden } from "@chakra-ui/react";
 import Link from "next/link";
 import { ColorModeButton } from "@/components/ui/color-mode";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
+import { Footer } from "@/components/footer";
 
 export default function AppLayout({
   children,
@@ -15,12 +15,13 @@ export default function AppLayout({
       <Flex
         width="full"
         height="12"
+        zIndex={10}
         p="4"
         pos="sticky"
         top="0"
-        backdropFilter="auto"
-        backdropBlur="2xl"
-        bg="bg/80"
+        bg="bg/90"
+        shadow="md"
+        backdropFilter="blur(10px)"
         alignItems={"center"}
         xl={{
           height: "16",
@@ -35,12 +36,13 @@ export default function AppLayout({
         </Heading>
         <Flex ml="auto" gap="4">
           <ColorModeButton />
-          <Button asChild variant="surface" rounded={"lg"} size="sm">
+          <Button asChild variant="subtle" rounded={"lg"} size="sm">
             <Link href="/auth/signin">Sign in</Link>
           </Button>
         </Flex>
       </Flex>
-      {children}
+      <Box minH="38rem">{children}</Box>
+      <Footer />
     </>
   );
 }

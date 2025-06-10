@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import "../globals.css";
-import { Box, Center } from "@chakra-ui/react";
+import { Center } from "@chakra-ui/react";
 
 export const metadata: Metadata = {
   title: "Create Next App",

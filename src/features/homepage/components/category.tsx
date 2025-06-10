@@ -1,13 +1,14 @@
 import { Box, Flex, Heading, Icon, Text } from "@chakra-ui/react";
+import { LucideIcon } from "lucide-react";
 import Link from "next/link";
-import { IconType } from "react-icons";
+import { ReactNode } from "react";
 
 type Props = {
   category: string;
   title: string;
   color: string;
   listings: number;
-  icon: IconType;
+  icon: LucideIcon;
 };
 
 export function Category({
@@ -18,10 +19,10 @@ export function Category({
   icon: ReactIcon,
 }: Props) {
   return (
-    <Link href={`/search?c=${category}`}>
+    <Link href={`/browse?c=${category}`}>
       <Flex
         bg="bg"
-        w="14rem"
+        w="15rem"
         h="10rem"
         gap="1"
         shadow={"xs"}

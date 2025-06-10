@@ -9,18 +9,18 @@ export default async function SearchPage({
 
   if (Array.isArray(params.q) || params.q?.trim() === "") {
     if (params.l) {
-      throw redirect(`/search?l=${params.l}`);
+      throw redirect(`/browse?l=${params.l}`);
     }
 
-    throw redirect("/search");
+    throw redirect("/browse");
   }
 
   if (Array.isArray(params.l) || params.l?.trim() === "") {
     if (params.q) {
-      throw redirect(`/search?q=${params.q}`);
+      throw redirect(`/browse?q=${params.q}`);
     }
 
-    throw redirect("/search");
+    throw redirect("/browse");
   }
 
   return (
