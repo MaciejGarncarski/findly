@@ -11,6 +11,7 @@ export function FeaturedList() {
       minH={"40rem"}
       gap="10"
       py="16"
+      px="6"
     >
       <Box
         display={"flex"}
