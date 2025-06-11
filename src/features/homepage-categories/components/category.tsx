@@ -1,7 +1,6 @@
 import { Box, Flex, Heading, Icon, Text } from "@chakra-ui/react";
 import { LucideIcon } from "lucide-react";
 import Link from "next/link";
-import { ReactNode } from "react";
 
 type Props = {
   category: string;
@@ -22,9 +21,13 @@ export function Category({
     <Link href={`/browse?c=${category}`}>
       <Flex
         bg="bg"
-        w="15rem"
-        h="10rem"
-        gap="1"
+        w="10rem"
+        h="8rem"
+        lg={{
+          w: "15rem",
+          gap: "1",
+          h: "10rem",
+        }}
         shadow={"xs"}
         _hover={{ shadow: "lg" }}
         transition={"shadow"}
@@ -41,11 +44,11 @@ export function Category({
           _dark={{ color: `${color}.700` }}
           p="4"
         >
-          <Icon size="xl">
+          <Icon size={{ lg: "xl", base: "lg" }}>
             <ReactIcon />
           </Icon>
         </Box>
-        <Heading as="h3" fontSize={"md"} mt="2">
+        <Heading as="h3" fontSize={"md"} lg={{ mt: "2" }}>
           {title}
         </Heading>
         <Text color={"fg.muted"} fontSize={"sm"}>

@@ -1,5 +1,5 @@
-import { Category } from "@/features/homepage/components/category";
-import { Flex } from "@chakra-ui/react";
+import { Category } from "@/features/homepage-categories/components/category";
+import { Box } from "@chakra-ui/react";
 import { Briefcase, House, LucideIcon, Smartphone, Wrench } from "lucide-react";
 import { unstable_cacheLife, unstable_cacheTag } from "next/cache";
 
@@ -58,7 +58,16 @@ export async function Categories() {
   const listings = await getListings();
 
   return (
-    <Flex gap="8" direction={"column"} lg={{ flexDir: "row" }}>
+    <Box
+      display="grid"
+      gridTemplateColumns={"1fr 1fr"}
+      gap="4"
+      lg={{
+        gap: "8",
+        w: "full",
+      }}
+      xl={{ gridTemplateColumns: "repeat(4, 1fr)" }}
+    >
       {featuredCategories.map(({ category, color, title, icon }) => {
         return (
           <Category
@@ -71,6 +80,6 @@ export async function Categories() {
           />
         );
       })}
-    </Flex>
+    </Box>
   );
 }

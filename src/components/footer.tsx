@@ -22,7 +22,7 @@ export function Footer() {
         gap="8"
         mx="auto"
         flexDir={"column"}
-        lg={{ maxW: "2/3", flexDir: "column" }}
+        lg={{ maxW: "6xl", flexDir: "column" }}
       >
         <Flex>
           <Flex direction={"column"} gap="4" lg={{ maxW: "1/3", gap: "2" }}>
