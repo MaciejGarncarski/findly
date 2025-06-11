@@ -20,6 +20,8 @@ services:
       - findly-db-data:/var/lib/postgresql/data
   app:
     container_name: findly-app-prod
+    image: ghcr.io/maciejgarncarski/findly:latest
+    pull_policy: always
     build:
       context: ../../
       dockerfile: docker/production/Dockerfile
