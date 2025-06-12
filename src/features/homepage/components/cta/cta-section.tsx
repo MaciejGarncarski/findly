@@ -26,6 +26,10 @@ export function CTASection() {
       textAlign={"center"}
       gradientFrom="teal.500"
       gradientTo="blue.400"
+      _dark={{
+        gradientFrom: "teal.300",
+        gradientTo: "blue.300",
+      }}
       gap="8"
       px="6"
       lg={{

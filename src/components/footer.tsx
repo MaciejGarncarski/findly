@@ -13,7 +13,7 @@ export function Footer() {
     <Box
       as="footer"
       bg="teal.800"
-      color={"teal.subtle/80"}
+      color="gray.300"
       py="10"
       px="10"
       lg={{ px: "2vw" }}
@@ -29,7 +29,7 @@ export function Footer() {
             <Box w="5rem">
               <Logo />
             </Box>
-            <Text color={"teal.subtle/80"}>
+            <Text>
               The easiest way to buy and sell locally. Connect with people in
               your community and find great deals on everything you need.
             </Text>
@@ -53,11 +53,9 @@ export function Footer() {
             </Flex>
           </Flex>
         </Flex>
-        <Separator borderColor="teal.700" />
+        <Separator borderColor="teal.600" />
         <Flex>
-          <Text fontSize={"sm"} color="gray.300">
-            © 2025 Findly. All rights reserved.
-          </Text>
+          <Text fontSize={"xs"}>© 2025 Findly. All rights reserved.</Text>
         </Flex>
       </Flex>
     </Box>
