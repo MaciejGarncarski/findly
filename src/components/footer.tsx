@@ -11,9 +11,9 @@ const socials = [
 export function Footer() {
   return (
     <Box
-      color={"white"}
       as="footer"
       bg="teal.800"
+      color={"teal.subtle/80"}
       py="10"
       px="10"
       lg={{ px: "2vw" }}
@@ -25,11 +25,11 @@ export function Footer() {
         lg={{ maxW: "6xl", flexDir: "column" }}
       >
         <Flex>
-          <Flex direction={"column"} gap="4" lg={{ maxW: "1/3", gap: "2" }}>
+          <Flex direction={"column"} gap="4" lg={{ maxW: "1/3", gap: "4" }}>
             <Box w="5rem">
               <Logo />
             </Box>
-            <Text color={"whiteAlpha.800"}>
+            <Text color={"teal.subtle/80"}>
               The easiest way to buy and sell locally. Connect with people in
               your community and find great deals on everything you need.
             </Text>
@@ -37,14 +37,14 @@ export function Footer() {
               {socials.map(({ icon: IconElement, name, path }) => {
                 return (
                   <Link
-                    rounded="lg"
-                    color="teal.600"
-                    _hover={{ bg: "teal.700" }}
-                    p="2"
                     key={name}
+                    rounded="lg"
+                    color="teal.500"
+                    p="2"
+                    _hover={{ bg: "teal.700" }}
                     href={path}
                   >
-                    <Icon>
+                    <Icon size="md">
                       <IconElement />
                     </Icon>
                   </Link>

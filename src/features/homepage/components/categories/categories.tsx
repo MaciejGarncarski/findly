@@ -1,4 +1,4 @@
-import { Category } from "@/features/homepage-categories/components/category";
+import { Category } from "@/features/homepage/components/categories/category";
 import { Box } from "@chakra-ui/react";
 import { Briefcase, House, LucideIcon, Smartphone, Wrench } from "lucide-react";
 import { unstable_cacheLife, unstable_cacheTag } from "next/cache";
@@ -62,6 +62,7 @@ export async function Categories() {
       display="grid"
       gridTemplateColumns={"1fr 1fr"}
       gap="4"
+      placeContent={"center"}
       lg={{
         gap: "8",
         w: "full",

@@ -14,7 +14,7 @@
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.44.2",
     "lucide-react": "^0.513.0",
-    "next": "^15.4.0-canary.75",
+    "next": "^15.4.0-canary.80",
     "next-themes": "^0.4.6",
     "pg": "^8.16.0",
     "react": "19.1.0",

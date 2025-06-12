@@ -21,6 +21,7 @@ export function Category({
     <Link href={`/browse?c=${category}`}>
       <Flex
         bg="bg"
+        mx="auto"
         w="10rem"
         h="8rem"
         lg={{

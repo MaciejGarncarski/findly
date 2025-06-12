@@ -19,9 +19,11 @@ export function FeaturedItem() {
       flexDir={"column"}
       rounded={"2xl"}
       overflow="hidden"
-      shadow="lg"
+      borderWidth="1px"
+      borderColor={"border.subtle"}
       transition={"shadow"}
       transitionDuration={"slow"}
+      shadow="lg"
       _hover={{
         shadow: "xl",
       }}
@@ -34,7 +36,7 @@ export function FeaturedItem() {
           alt="Test"
         />
       </Box>
-      <Flex gap="2" flexDir={"column"} bg="bg.panel" p="4">
+      <Flex gap="2" flexDir={"column"} p="4">
         <Flex justifyContent={"space-between"}>
           <Badge variant={"solid"}>Electronics</Badge>
           <Flex gap="1" color="fg.muted" fontSize={"sm"} alignItems={"center"}>

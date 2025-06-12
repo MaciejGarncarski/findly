@@ -1,4 +1,4 @@
-import { ItemList } from "@/features/homepage-featured/components/item-list";
+import { ItemList } from "@/features/homepage/components/featured/item-list";
 import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
 
@@ -12,6 +12,9 @@ export function FeaturedList() {
       gap="10"
       py="16"
       px="6"
+      lg={{
+        px: 0,
+      }}
     >
       <Box
         display={"flex"}

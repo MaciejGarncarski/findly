@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
     ppr: true,
     useCache: true,
     cssChunking: true,
+    useLightningcss: true,
     optimizePackageImports: ["@chakra-ui/react"],
   },
   async redirects() {

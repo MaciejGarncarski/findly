@@ -25,7 +25,7 @@ export default function AppLayout({
         alignItems={"center"}
         xl={{
           height: "16",
-          px: "10rem",
+          px: "8rem",
         }}
       >
         <Heading as="h1">

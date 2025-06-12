@@ -1,4 +1,4 @@
-import { Categories } from "@/features/homepage-categories/components/categories";
+import { Categories } from "@/features/homepage/components/categories/categories";
 import { Box, Flex, Heading, Skeleton, Text } from "@chakra-ui/react";
 import { Suspense } from "react";
 

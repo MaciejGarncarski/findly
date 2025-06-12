@@ -1,4 +1,4 @@
-import { FeaturedItem } from "@/features/homepage-featured/components/featured-item";
+import { FeaturedItem } from "@/features/homepage/components/featured/featured-item";
 import { Box } from "@chakra-ui/react";
 
 export function ItemList() {

@@ -33,6 +33,7 @@ services:
     networks:
       - app-network
     environment:
+      - NEXT_TELEMETRY_DISABLED=1
       - DATABASE_URL=postgresql://postgres:postgres@db/findly?schema=public
       - NODE_ENV=development
 
