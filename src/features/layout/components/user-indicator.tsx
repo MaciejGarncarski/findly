@@ -35,11 +35,8 @@ export async function UserIndicator() {
   }
 
   return (
-    <>
-      <Button asChild variant="subtle" rounded={"lg"} size="sm">
-        <Link href="/auth/signin">Sign in</Link>
-      </Button>
-      <div onClick={signOut}>revalidate</div>
-    </>
+    <Button asChild variant="subtle" rounded={"lg"} size="sm">
+      <Link href="/auth/signin">Sign in</Link>
+    </Button>
   );
 }
