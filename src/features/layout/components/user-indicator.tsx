@@ -5,7 +5,6 @@ import Link from "next/link";
 
 export async function UserIndicator() {
   const session = await getSessionUser();
-  console.log(session?.email);
 
   if (session?.email) {
     return (

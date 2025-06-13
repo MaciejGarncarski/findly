@@ -12,7 +12,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - dockerfile: ./docker/production/Dockerfile
+          - dockerfile: ./docker/Dockerfile.prod
             appname: maciejgarncarski/findly
             image: ghcr.io/maciejgarncarski/findly
 
