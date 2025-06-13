@@ -6,12 +6,9 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
-    dynamicIO: true,
-    ppr: true,
-    useCache: true,
-    cssChunking: true,
-    useLightningcss: true,
     optimizePackageImports: ["@chakra-ui/react"],
+    dynamicIO: true,
+    useCache: true,
   },
   async redirects() {
     return [
