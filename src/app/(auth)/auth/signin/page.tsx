@@ -1,3 +1,5 @@
+import { SignIn } from "@/features/auth/pages/signin";
+
 export default function SignInPage() {
-  return <p>Site under construction</p>;
+  return <SignIn />;
 }

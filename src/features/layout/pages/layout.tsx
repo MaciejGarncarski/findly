@@ -1,11 +1,12 @@
 import { Footer } from "@/components/footer";
 import { ColorModeButton } from "@/components/ui/color-mode";
-import { Box, Button, Flex, Heading, VisuallyHidden } from "@chakra-ui/react";
+import { Box, Flex, Heading, VisuallyHidden } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import logo from "@/assets/logo.png";
 import { NavbarDesktop } from "@/features/layout/components/navbar-desktop";
+import { UserIndicator } from "@/features/layout/components/user-indicator";
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
@@ -34,11 +35,10 @@ export function Layout({ children }: { children: ReactNode }) {
         </Heading>
         <Flex ml="auto" gap="8" alignItems={"center"}>
           <NavbarDesktop />
-
           <ColorModeButton />
-          <Button asChild variant="subtle" rounded={"lg"} size="sm">
-            <Link href="/auth/signin">Sign in</Link>
-          </Button>
+          <Suspense fallback={<p>loading</p>}>
+            <UserIndicator />
+          </Suspense>
         </Flex>
       </Flex>
       <Box minH="38rem">{children}</Box>
