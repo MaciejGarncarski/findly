@@ -7,8 +7,6 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ["@chakra-ui/react"],
-    dynamicIO: true,
-    useCache: true,
   },
   async redirects() {
     return [

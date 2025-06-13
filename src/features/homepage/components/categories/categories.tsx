@@ -1,7 +1,6 @@
 import { Category } from "@/features/homepage/components/categories/category";
 import { Box } from "@chakra-ui/react";
 import { Briefcase, House, LucideIcon, Smartphone, Wrench } from "lucide-react";
-import { unstable_cacheLife, unstable_cacheTag } from "next/cache";
 
 type Categories = {
   title: string;
@@ -38,14 +37,6 @@ const featuredCategories = [
 ] satisfies Categories;
 
 async function getListings(): Promise<Record<string, number>> {
-  "use cache";
-  unstable_cacheTag("categories-homepage");
-  unstable_cacheLife({
-    stale: 600_000,
-    revalidate: 600_000 * 6,
-    expire: 600_000 * 6 * 2,
-  });
-
   return {
     job: Math.floor(Math.random() * 100),
     "real-estate": Math.floor(Math.random() * 300),
