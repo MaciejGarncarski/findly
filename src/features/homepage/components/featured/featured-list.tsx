@@ -31,7 +31,9 @@ export function FeaturedList() {
         </Flex>
 
         <Button asChild variant={"outline"} rounded="full" size="lg">
-          <Link href="/browse">View all</Link>
+          <Link href="/browse" prefetch={false}>
+            View all
+          </Link>
         </Button>
       </Box>
       <ItemList />

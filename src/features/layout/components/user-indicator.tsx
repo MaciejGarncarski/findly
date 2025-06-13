@@ -36,7 +36,9 @@ export async function UserIndicator() {
 
   return (
     <Button asChild variant="subtle" rounded={"lg"} size="sm">
-      <Link href="/auth/signin">Sign in</Link>
+      <Link href="/auth/signin" prefetch={false}>
+        Sign in
+      </Link>
     </Button>
   );
 }
