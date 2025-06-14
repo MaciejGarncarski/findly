@@ -1,14 +1,10 @@
+import { Spinner, Text, VStack } from "@chakra-ui/react";
+
 export default function Loading() {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
-      <p>Loading...</p>
-    </div>
+    <VStack>
+      <Spinner size="xl" />
+      <Text color="colorPalette.600">Loading...</Text>
+    </VStack>
   );
 }
