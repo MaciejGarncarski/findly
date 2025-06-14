@@ -1,3 +1,4 @@
+import { BrowsePage } from "@/features/browse/pages/browse";
 import { redirect } from "next/navigation";
 
 export default async function SearchPage({
@@ -23,10 +24,5 @@ export default async function SearchPage({
     throw redirect("/browse");
   }
 
-  return (
-    <>
-      {JSON.stringify(params)}
-      <p>Im search</p>
-    </>
-  );
+  return <BrowsePage />;
 }

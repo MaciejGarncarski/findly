@@ -1,14 +1,5 @@
+import { BrowseSkeletonPage } from "@/features/browse/pages/browse-skeleton";
+
 export default function Loading() {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
-      <p>Loading...</p>
-    </div>
-  );
+  return <BrowseSkeletonPage />;
 }

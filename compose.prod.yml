@@ -24,7 +24,7 @@ services:
     pull_policy: always
     build:
       context: .
-      dockerfile: docker/production/Dockerfile
+      dockerfile: docker/Dockerfile.prod
     depends_on:
       - db
     ports:
