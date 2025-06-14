@@ -17,7 +17,7 @@ export function BrowseSkeletonPage() {
         }}
       >
         {Array.from({ length: 32 }).map((_, i) => {
-          return <Skeleton w={"20rem"} h="12rem" mx="auto" key={i} />;
+          return <Skeleton w={"20rem"} h="15rem" mx="auto" key={i} />;
         })}
       </Box>
     </Box>

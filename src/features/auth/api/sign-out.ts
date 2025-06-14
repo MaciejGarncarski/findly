@@ -5,5 +5,5 @@ import { revalidatePath } from "next/cache";
 
 export async function signOut() {
   await deleteSession();
-  revalidatePath("/");
+  revalidatePath("/(app)");
 }
