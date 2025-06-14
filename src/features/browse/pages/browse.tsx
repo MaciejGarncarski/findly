@@ -4,12 +4,6 @@ import placeholderImage from "@/assets/placeholder.svg";
 import { IfAuthed } from "@/components/if-authed";
 
 export async function BrowsePage() {
-  await new Promise((res) => {
-    setTimeout(() => {
-      res("");
-    }, 5000);
-  });
-
   return (
     <>
       <IfAuthed>

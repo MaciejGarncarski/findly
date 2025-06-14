@@ -1,7 +1,7 @@
 import { getSessionUser } from "@/features/auth/api/get-session-user";
 import { signOut } from "@/features/auth/api/sign-out";
+import { SignInLink } from "@/features/layout/components/sign-in-link";
 import { Button, Menu } from "@chakra-ui/react";
-import Link from "next/link";
 
 export async function UserIndicator() {
   const session = await getSessionUser();
@@ -34,11 +34,5 @@ export async function UserIndicator() {
     );
   }
 
-  return (
-    <Button asChild variant="subtle" rounded={"lg"} size="sm">
-      <Link href="/auth/signin" prefetch={false}>
-        Sign in
-      </Link>
-    </Button>
-  );
+  return <SignInLink />;
 }
