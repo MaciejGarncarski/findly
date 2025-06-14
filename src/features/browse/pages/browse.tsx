@@ -1,15 +1,10 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Image from "next/image";
 import placeholderImage from "@/assets/placeholder.svg";
-import { IfAuthed } from "@/components/if-authed";
 
 export async function BrowsePage() {
   return (
     <>
-      <IfAuthed>
-        <Button>Add new item</Button>
-      </IfAuthed>
-
       <Box maxW="6xl" mx="auto" py="10" px="6" lg={{ px: 0 }}>
         <Box
           display="grid"

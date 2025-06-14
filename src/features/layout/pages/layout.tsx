@@ -7,6 +7,8 @@ import { ReactNode, Suspense } from "react";
 import logo from "@/assets/logo.png";
 import { NavbarDesktop } from "@/features/layout/components/navbar-desktop";
 import { UserIndicator } from "@/features/layout/components/user-indicator";
+import { AddListingLink } from "@/features/add-listing/components/add-listing-link";
+import { NavbarMobile } from "@/features/layout/components/navbar-mobile";
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
@@ -33,13 +35,19 @@ export function Layout({ children }: { children: ReactNode }) {
             <VisuallyHidden>Findly</VisuallyHidden>
           </Link>
         </Heading>
-        <Flex ml="auto" gap="8" alignItems={"center"}>
-          <NavbarDesktop />
-          <ColorModeButton />
-          <Suspense fallback={<p>loading</p>}>
-            <UserIndicator />
-          </Suspense>
-        </Flex>
+        <Box ml="auto" hideFrom={"lg"}>
+          <NavbarMobile />
+        </Box>
+        <Box ml="auto" hideBelow={"lg"}>
+          <Flex gap="8" alignItems={"center"}>
+            <NavbarDesktop />
+            <ColorModeButton />
+            <Suspense fallback={<p>loading</p>}>
+              <UserIndicator />
+            </Suspense>
+            <AddListingLink />
+          </Flex>
+        </Box>
       </Flex>
       <Box minH="38rem">{children}</Box>
       <Footer />

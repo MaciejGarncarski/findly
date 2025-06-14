@@ -2,6 +2,7 @@ import { getSessionUser } from "@/features/auth/api/get-session-user";
 import { signOut } from "@/features/auth/api/sign-out";
 import { SignInLink } from "@/features/layout/components/sign-in-link";
 import { Button, Menu } from "@chakra-ui/react";
+import { ChevronDown, User } from "lucide-react";
 
 export async function UserIndicator() {
   const session = await getSessionUser();
@@ -10,19 +11,21 @@ export async function UserIndicator() {
     return (
       <Menu.Root>
         <Menu.Trigger asChild>
-          <Button variant="outline" size="sm">
-            {session.username}
+          <Button variant="plain" size="sm">
+            <User />
+            Your account
+            <ChevronDown />
           </Button>
         </Menu.Trigger>
         <Menu.Positioner>
           <Menu.Content>
-            <Menu.Item value="">{session.username}</Menu.Item>
+            <Menu.Item value="username">{session.username}</Menu.Item>
             <Menu.Separator />
-            <Menu.Item asChild value="">
+            <Menu.Item asChild value="signOut">
               <Button
-                variant="subtle"
+                variant="ghost"
                 rounded={"lg"}
-                size="sm"
+                size="xs"
                 onClick={signOut}
               >
                 Sign out
