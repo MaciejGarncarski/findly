@@ -12,9 +12,7 @@ export function SignInLink() {
 
   return (
     <Button asChild variant="subtle" rounded={"lg"} size="sm">
-      <Link href={`/auth/signin${pathToRedirect}`} prefetch={false}>
-        Sign in
-      </Link>
+      <Link href={`/auth/signin${pathToRedirect}`}>Sign in</Link>
     </Button>
   );
 }

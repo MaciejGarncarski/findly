@@ -7,9 +7,7 @@ export function NavbarDesktop() {
       <Box as="ul">
         <Box as="li">
           <Text asChild>
-            <Link href={"/browse"} prefetch={false}>
-              Browse
-            </Link>
+            <Link href={"/browse"}>Browse</Link>
           </Text>
         </Box>
       </Box>

@@ -31,7 +31,7 @@ export function FeaturedList() {
         </Flex>
 
         <Button asChild variant={"outline"} rounded="full" size="lg">
-          <Link href="/browse" prefetch={false}>
+          <Link href="/browse" >
             View all
           </Link>
         </Button>

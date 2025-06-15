@@ -16,7 +16,7 @@ import Link from "next/link";
 
 export function NavbarMobile() {
   return (
-    <Drawer.Root>
+    <Drawer.Root placement={"bottom"}>
       <Drawer.Trigger asChild>
         <Button variant="outline" size="sm">
           <Icon>
@@ -37,19 +37,14 @@ export function NavbarMobile() {
                 <VStack
                   as="ul"
                   h="full"
-                  fontSize={"2xl"}
-                  gap="12"
+                  fontSize={"md"}
+                  gap="4"
+                  alignItems={"start"}
                   justifyContent={"center"}
                 >
-                  <Link href={"/"} prefetch={false}>
-                    Home
-                  </Link>
-                  <Link href={"/browse"} prefetch={false}>
-                    Browse
-                  </Link>
-                  <Link href={"/adding"} prefetch={false}>
-                    Add Listing
-                  </Link>
+                  <Link href={"/"}>Home</Link>
+                  <Link href={"/browse"}>Browse</Link>
+                  <Link href={"/adding"}>Add Listing</Link>
                 </VStack>
               </Box>
             </Drawer.Body>

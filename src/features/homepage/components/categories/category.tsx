@@ -18,7 +18,7 @@ export function Category({
   icon: ReactIcon,
 }: Props) {
   return (
-    <Link href={`/browse?c=${category}`} prefetch={false}>
+    <Link href={`/browse?c=${category}`}>
       <Flex
         bg="bg"
         mx="auto"
