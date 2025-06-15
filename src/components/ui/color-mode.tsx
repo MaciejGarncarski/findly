@@ -35,7 +35,13 @@ export interface UseColorModeReturn {
 export function useColorMode(): UseColorModeReturn {
   const { resolvedTheme, setTheme, forcedTheme, theme } = useTheme();
   const colorMode = forcedTheme || resolvedTheme;
+
   const toggleColorMode = () => {
+    if (!theme) {
+      setTheme("system");
+      return;
+    }
+
     if (theme === "system") {
       setTheme("dark");
       return;
@@ -51,11 +57,12 @@ export function useColorMode(): UseColorModeReturn {
       return;
     }
   };
+
   return {
     colorMode: colorMode as ColorMode,
+    theme: theme as ThemeValue,
     setColorMode: setTheme,
     toggleColorMode,
-    theme: (theme || "system") as ThemeValue,
   };
 }
 
@@ -77,6 +84,7 @@ export function ColorModeIcon() {
 export const ColorModeButton = React.forwardRef<HTMLButtonElement>(
   function ColorModeButton(props, ref) {
     const { toggleColorMode } = useColorMode();
+
     return (
       <ClientOnly fallback={<Skeleton boxSize="8" />}>
         <IconButton
@@ -96,6 +104,31 @@ export const ColorModeButton = React.forwardRef<HTMLButtonElement>(
           <ColorModeIcon />
         </IconButton>
       </ClientOnly>
+    );
+  }
+);
+
+export const ColorModeBtnDyn = React.forwardRef<HTMLButtonElement>(
+  function ColorModeButton(props, ref) {
+    const { toggleColorMode } = useColorMode();
+
+    return (
+      <IconButton
+        onClick={toggleColorMode}
+        variant="ghost"
+        aria-label="Toggle color mode"
+        size="sm"
+        ref={ref}
+        {...props}
+        css={{
+          _icon: {
+            width: "5",
+            height: "5",
+          },
+        }}
+      >
+        <ColorModeIcon />
+      </IconButton>
     );
   }
 );
