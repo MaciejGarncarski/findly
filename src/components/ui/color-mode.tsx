@@ -108,31 +108,6 @@ export const ColorModeButton = React.forwardRef<HTMLButtonElement>(
   }
 );
 
-export const ColorModeBtnDyn = React.forwardRef<HTMLButtonElement>(
-  function ColorModeButton(props, ref) {
-    const { toggleColorMode } = useColorMode();
-
-    return (
-      <IconButton
-        onClick={toggleColorMode}
-        variant="ghost"
-        aria-label="Toggle color mode"
-        size="sm"
-        ref={ref}
-        {...props}
-        css={{
-          _icon: {
-            width: "5",
-            height: "5",
-          },
-        }}
-      >
-        <ColorModeIcon />
-      </IconButton>
-    );
-  }
-);
-
 export const LightMode = React.forwardRef<HTMLSpanElement, SpanProps>(
   function LightMode(props, ref) {
     return (

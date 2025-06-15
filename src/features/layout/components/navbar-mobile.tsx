@@ -1,10 +1,15 @@
+import { ColorModeButton } from "@/components/ui/color-mode";
+import { UserIndicator } from "@/features/layout/components/user-indicator";
 import {
+  Box,
   Button,
   CloseButton,
   Drawer,
+  Flex,
   Icon,
   Portal,
   VisuallyHidden,
+  VStack,
 } from "@chakra-ui/react";
 import { Menu } from "lucide-react";
 import Link from "next/link";
@@ -23,13 +28,19 @@ export function NavbarMobile() {
       <Portal>
         <Drawer.Backdrop />
         <Drawer.Positioner>
-          <Drawer.Content>
+          <Drawer.Content bg="bg/95" backdropFilter="blur(4px)">
             <Drawer.Header>
               <Drawer.Title>Navigation Menu</Drawer.Title>
             </Drawer.Header>
             <Drawer.Body>
-              <nav>
-                <ul>
+              <Box as="nav" h="full">
+                <VStack
+                  as="ul"
+                  h="full"
+                  fontSize={"2xl"}
+                  gap="12"
+                  justifyContent={"center"}
+                >
                   <Link href={"/"} prefetch={false}>
                     Home
                   </Link>
@@ -39,9 +50,15 @@ export function NavbarMobile() {
                   <Link href={"/adding"} prefetch={false}>
                     Add Listing
                   </Link>
-                </ul>
-              </nav>
+                </VStack>
+              </Box>
             </Drawer.Body>
+            <Drawer.Footer>
+              <Flex justifyContent={"space-between"} w="full">
+                <ColorModeButton />
+                <UserIndicator />
+              </Flex>
+            </Drawer.Footer>
             <Drawer.CloseTrigger asChild>
               <CloseButton size="sm" />
             </Drawer.CloseTrigger>
