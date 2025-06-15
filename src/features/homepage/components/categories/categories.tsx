@@ -56,7 +56,6 @@ export async function Categories() {
       placeContent={"center"}
       lg={{
         gap: "8",
-        w: "full",
       }}
       xl={{ gridTemplateColumns: "repeat(4, 1fr)" }}
     >

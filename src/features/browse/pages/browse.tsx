@@ -1,6 +1,7 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import placeholderImage from "@/assets/placeholder.svg";
+import Link from "next/link";
 
 export async function BrowsePage() {
   return (
@@ -41,9 +42,12 @@ export async function BrowsePage() {
                     alt="placeholder"
                   />
                 </Box>
-                <Box bg="bg.subtle" h="10rem" p="2">
-                  Item
-                </Box>
+                <Flex bg="bg.subtle" p="2" alignItems={"center"}>
+                  <Text>Item</Text>
+                  <Button asChild rounded="full" variant={"subtle"} size="sm">
+                    <Link href="/browse/item">Check out</Link>
+                  </Button>
+                </Flex>
               </Box>
             );
           })}

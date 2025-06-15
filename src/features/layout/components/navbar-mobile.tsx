@@ -18,7 +18,7 @@ export function NavbarMobile() {
   return (
     <Drawer.Root placement={"bottom"}>
       <Drawer.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button variant="ghost" size="sm">
           <Icon>
             <Menu />
           </Icon>
@@ -28,7 +28,11 @@ export function NavbarMobile() {
       <Portal>
         <Drawer.Backdrop />
         <Drawer.Positioner>
-          <Drawer.Content bg="bg/95" backdropFilter="blur(4px)">
+          <Drawer.Content
+            bg="bg/95"
+            roundedTop={"l3"}
+            backdropFilter="blur(4px)"
+          >
             <Drawer.Header>
               <Drawer.Title>Navigation Menu</Drawer.Title>
             </Drawer.Header>

@@ -11,7 +11,7 @@ export async function UserIndicator() {
     return (
       <Menu.Root>
         <Menu.Trigger asChild>
-          <Button variant="plain" size="sm">
+          <Button variant="plain" size="sm" px="0">
             <User />
             Your account
             <ChevronDown />
