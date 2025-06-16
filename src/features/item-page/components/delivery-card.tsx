@@ -3,7 +3,14 @@ import { HouseIcon, InfoIcon, Truck } from "lucide-react";
 
 export function DeliveryCard() {
   return (
-    <Card.Root width="320px" h="auto" rounded={"xl"}>
+    <Card.Root
+      width="full"
+      h="auto"
+      rounded={"xl"}
+      lg={{
+        width: "320px",
+      }}
+    >
       <Card.Body gap="2">
         <Card.Title mt="2">Delivery & Pickup</Card.Title>
         <Flex

@@ -3,7 +3,14 @@ import { BoxIcon, Clock, Mail, MessageCircle, Phone } from "lucide-react";
 
 export function ContactCard() {
   return (
-    <Card.Root width="320px" h="auto" rounded={"xl"}>
+    <Card.Root
+      width="full"
+      h="auto"
+      rounded={"xl"}
+      lg={{
+        width: "320px",
+      }}
+    >
       <Card.Body gap="2">
         <Flex gap="4">
           <Avatar.Root size="xl" shape="rounded" rounded="full">
