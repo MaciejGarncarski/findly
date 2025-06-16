@@ -56,6 +56,7 @@ export function ItemPage() {
           <DescriptionCard />
         </Box>
         <Flex
+          w="full"
           flexDir={"column"}
           gap="8"
           alignSelf={"start"}

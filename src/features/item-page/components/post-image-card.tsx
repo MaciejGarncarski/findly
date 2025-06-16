@@ -12,6 +12,7 @@ export function PostImageCard() {
       <Flex
         flexDir={"column"}
         maxW="full"
+        w="full"
         bg="bg.muted"
         rounded={"xl"}
         gap="2"
