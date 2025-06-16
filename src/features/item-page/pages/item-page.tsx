@@ -1,11 +1,22 @@
-import { Box, Breadcrumb, Flex, Stack, Text } from "@chakra-ui/react";
-import Image from "next/image";
-import placeholder from "@/assets/placeholder.svg";
+import { Box, Breadcrumb, Flex, Stack } from "@chakra-ui/react";
 import Link from "next/link";
+
+import { ContactCard } from "@/features/item-page/components/contact-card";
+import { DeliveryCard } from "@/features/item-page/components/delivery-card";
+import { PostImageCard } from "@/features/item-page/components/post-image-card";
+import { DescriptionCard } from "@/features/item-page/components/description-card";
 
 export function ItemPage() {
   return (
-    <Box maxW="6xl" mx="auto" py="10" px="6" lg={{ px: 0 }}>
+    <Flex
+      maxW="6xl"
+      mx="auto"
+      py="10"
+      px="6"
+      xl={{ px: 0 }}
+      flexDir={"column"}
+      gap="8"
+    >
       <Stack>
         <Breadcrumb.Root size={"lg"}>
           <Breadcrumb.List>
@@ -28,16 +39,35 @@ export function ItemPage() {
         </Breadcrumb.Root>
       </Stack>
 
-      <Box bg="bg.muted" p="2" rounded={"xl"}>
-        <Box position={"relative"} h="20rem" rounded={"xl"} overflow={"hidden"}>
-          <Image src={placeholder} fill alt="" />
+      <Box
+        display="flex"
+        flexDir={"column"}
+        gap="8"
+        lg={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: "10",
+        }}
+        maxW="full"
+        alignItems={"start"}
+      >
+        <PostImageCard />
+        <Box gridRow={"2"} gridColumn={"span 3"}>
+          <DescriptionCard />
         </Box>
-        <Flex>
-          <p>test</p>
+        <Flex
+          flexDir={"column"}
+          gap="8"
+          alignSelf={"start"}
+          top="20"
+          lg={{
+            position: "sticky",
+          }}
+        >
+          <ContactCard />
+          <DeliveryCard />
         </Flex>
       </Box>
-
-      <Text>elo</Text>
-    </Box>
+    </Flex>
   );
 }
