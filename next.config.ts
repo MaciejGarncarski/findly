@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    remotePatterns: [new URL("https://media.tenor.com/**")],
+  },
   experimental: {
     optimizePackageImports: ["@chakra-ui/react"],
   },
