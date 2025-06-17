@@ -13,7 +13,7 @@ const GOOGLE_OAUTH_SCOPES = [
 export async function GET(req: NextRequest) {
   const appCbUrl = req.nextUrl.searchParams.get("appCbUrl");
   const state = {
-    appCbUrl,
+    appCbUrl: appCbUrl ? appCbUrl : "/",
   };
   const scopes = GOOGLE_OAUTH_SCOPES.join(" ");
   const GOOGLE_OAUTH_CONSENT_SCREEN_URL = `${GOOGLE_OAUTH_URL}?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${GOOGLE_CALLBACK_URL}&access_type=offline&response_type=code&state=${JSON.stringify(
