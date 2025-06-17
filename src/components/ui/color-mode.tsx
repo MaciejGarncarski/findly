@@ -2,23 +2,9 @@
 
 import type { SpanProps } from "@chakra-ui/react";
 import { ClientOnly, IconButton, Skeleton, Span } from "@chakra-ui/react";
-import { ThemeProvider, useTheme } from "next-themes";
-import type { ThemeProviderProps } from "next-themes";
+import { useTheme } from "next-themes";
 import { Monitor, Moon, Sun } from "lucide-react";
 import * as React from "react";
-
-export type ColorModeProviderProps = ThemeProviderProps;
-
-export function ColorModeProvider(props: ColorModeProviderProps) {
-  return (
-    <ThemeProvider
-      attribute="class"
-      enableSystem
-      disableTransitionOnChange
-      {...props}
-    />
-  );
-}
 
 export type ColorMode = "light" | "dark";
 
