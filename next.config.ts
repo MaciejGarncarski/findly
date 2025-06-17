@@ -8,9 +8,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [new URL("https://media.tenor.com/**")],
   },
-  experimental: {
-    optimizePackageImports: ["@chakra-ui/react"],
-  },
+
   async redirects() {
     return [
       {

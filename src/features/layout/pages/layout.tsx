@@ -20,9 +20,11 @@ export function Layout({ children }: { children: ReactNode }) {
         p="4"
         pos="sticky"
         top="0"
-        bg="bg/90"
-        shadow="md"
-        backdropFilter="blur(10px)"
+        bg="bg/95"
+        borderBottom={"1px solid"}
+        borderColor={"border"}
+        shadow={"xl"}
+        backdropFilter="blur(20px)"
         alignItems={"center"}
         xl={{
           height: "16",

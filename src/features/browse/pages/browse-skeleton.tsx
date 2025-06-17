@@ -2,7 +2,13 @@ import { Box, Skeleton } from "@chakra-ui/react";
 
 export function BrowseSkeletonPage() {
   return (
-    <Box maxW="6xl" mx="auto" py="10" px="6" lg={{ px: 0 }}>
+    <Box
+      w="fit"
+      mx="auto"
+      py="10"
+      px="6"
+      lg={{ px: 0, maxW: "initial", w: "fit" }}
+    >
       <Box
         display="grid"
         gridTemplateColumns={"repeat(1, 1fr)"}
@@ -13,11 +19,15 @@ export function BrowseSkeletonPage() {
           gridTemplateColumns: "repeat(2, 1fr)",
         }}
         lg={{
+          gap: "4",
           gridTemplateColumns: "repeat(3, 1fr)",
+        }}
+        xl={{
+          gridTemplateColumns: "repeat(4, 1fr)",
         }}
       >
         {Array.from({ length: 32 }).map((_, i) => {
-          return <Skeleton w={"20rem"} h="15rem" mx="auto" key={i} />;
+          return <Skeleton w={"19rem"} h="15rem" mx="auto" key={i} />;
         })}
       </Box>
     </Box>

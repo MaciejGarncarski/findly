@@ -45,10 +45,10 @@ export function CTASection() {
       </Text>
       <Flex gap="4" flexDir={"column"} lg={{ flexDir: "row", gap: "8" }}>
         <Button asChild variant={"subtle"} rounded="full" size="xl">
-          <Link href="#">Post Your First Ad</Link>
+          <Link href="/adding">Post Your First Ad</Link>
         </Button>
         <Button asChild variant={"solid"} rounded="full" size="xl">
-          <Link href="#">Browse items</Link>
+          <Link href="/browse">Browse items</Link>
         </Button>
       </Flex>
       <Flex flexDir={"column"} gap="8" lg={{ flexDir: "row" }}>
