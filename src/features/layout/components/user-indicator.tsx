@@ -1,7 +1,7 @@
 import { getSessionUser } from "@/features/auth/api/get-session-user";
 import { signOut } from "@/features/auth/api/sign-out";
 import { SignInLink } from "@/features/layout/components/sign-in-link";
-import { Button, Menu } from "@chakra-ui/react";
+import { Avatar, Button, Menu, Text } from "@chakra-ui/react";
 import { ChevronDown, User } from "lucide-react";
 
 export async function UserIndicator() {
@@ -19,7 +19,13 @@ export async function UserIndicator() {
         </Menu.Trigger>
         <Menu.Positioner>
           <Menu.Content>
-            <Menu.Item value="username">{session.username}</Menu.Item>
+            <Menu.Item value="username">
+              <Avatar.Root size="xs" shape="rounded" rounded="full">
+                <Avatar.Image src={session.picture} />
+                <Avatar.Fallback name={session.name} />
+              </Avatar.Root>
+              <Text>{session.username}</Text>
+            </Menu.Item>
             <Menu.Separator />
             <Menu.Item asChild value="signOut">
               <Button
