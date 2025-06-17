@@ -37,6 +37,12 @@ services:
       - DATABASE_URL=postgresql://postgres:postgres@db/findly?schema=public
       - NODE_ENV=development
       - SESSION_SECRET=${SESSION_SECRET:?SESSION_SECRET_NOT_SET}
+      - APP_ORIGIN=${APP_ORIGIN}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - GOOGLE_OAUTH_URL=${GOOGLE_OAUTH_URL}
+      - GOOGLE_CALLBACK_URL=${GOOGLE_CALLBACK_URL}
+      - GOOGLE_ACCESS_TOKEN_URL=${GOOGLE_ACCESS_TOKEN_URL}
 
 networks:
   app-network:
