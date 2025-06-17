@@ -2,9 +2,9 @@ import { env } from "@/config/env";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
 
-const GOOGLE_OAUTH_URL = env.GOOGLE_OAUTH_URL;
-const GOOGLE_CLIENT_ID = env.GOOGLE_CLIENT_ID;
-const GOOGLE_CALLBACK_URL = env.GOOGLE_CALLBACK_URL;
+const GOOGLE_OAUTH_URL = env?.GOOGLE_OAUTH_URL;
+const GOOGLE_CLIENT_ID = env?.GOOGLE_CLIENT_ID;
+const GOOGLE_CALLBACK_URL = env?.GOOGLE_CALLBACK_URL;
 const GOOGLE_OAUTH_SCOPES = [
   "https%3A//www.googleapis.com/auth/userinfo.email",
   "https%3A//www.googleapis.com/auth/userinfo.profile",

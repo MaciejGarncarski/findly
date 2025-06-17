@@ -1,6 +1,5 @@
-"use server";
-
 import { z } from "zod";
+import { PHASE_PRODUCTION_BUILD } from "next/constants";
 
 const envSchema = z.object({
   SESSION_SECRET: z.string(),
@@ -16,7 +15,10 @@ const parsedEnv = envSchema.safeParse(process.env);
 
 if (!parsedEnv.success) {
   console.log(parsedEnv.error.errors);
-  process.exit(1);
+
+  if (process.env.PHASE !== PHASE_PRODUCTION_BUILD) {
+    process.exit(1);
+  }
 }
 
 export const env = parsedEnv.data;

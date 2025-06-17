@@ -21,13 +21,13 @@ export async function GET(req: NextRequest) {
 
   const bodyData = {
     code: code,
-    client_id: env.GOOGLE_CLIENT_ID,
-    client_secret: env.GOOGLE_CLIENT_SECRET,
-    redirect_uri: env.GOOGLE_CALLBACK_URL,
+    client_id: env?.GOOGLE_CLIENT_ID,
+    client_secret: env?.GOOGLE_CLIENT_SECRET,
+    redirect_uri: env?.GOOGLE_CALLBACK_URL,
     grant_type: "authorization_code",
   };
 
-  const response = await fetch(env.GOOGLE_ACCESS_TOKEN_URL, {
+  const response = await fetch(env?.GOOGLE_ACCESS_TOKEN_URL || "", {
     method: "POST",
     body: JSON.stringify(bodyData),
   });
