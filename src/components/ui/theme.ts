@@ -6,6 +6,14 @@ const config = defineConfig({
       colorPalette: "teal",
     },
   },
+  theme: {
+    tokens: {
+      fonts: {
+        heading: { value: "var(--font-geist-sans)" },
+        body: { value: "var(--font-geist-sans)" },
+      },
+    },
+  },
 });
 
 export const system = createSystem(defaultConfig, config);

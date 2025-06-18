@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig = (phase: string): NextConfig => {
   return {
+    experimental: {
+      optimizePackageImports: ["@chakra-ui/react"],
+    },
     output: "standalone",
     eslint: {
       ignoreDuringBuilds: true,
