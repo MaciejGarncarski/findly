@@ -7,9 +7,6 @@ const encodedKey = new TextEncoder().encode(secretKey);
 
 type SessionPayload = {
   userId: string;
-  email: string;
-  name: string;
-  picture: string;
   expiresAt: Date;
 };
 
@@ -34,9 +31,6 @@ export async function decrypt(session: string | undefined = "") {
 
 type CreateSessionData = {
   userId: string;
-  email: string;
-  picture: string;
-  name: string;
 };
 
 export async function createSession(data: CreateSessionData) {
@@ -44,9 +38,6 @@ export async function createSession(data: CreateSessionData) {
 
   const session = await encrypt({
     userId: data.userId,
-    picture: data.picture,
-    email: data.email,
-    name: data.name,
     expiresAt,
   });
   const cookieStore = await cookies();

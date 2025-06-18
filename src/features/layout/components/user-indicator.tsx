@@ -21,10 +21,10 @@ export async function UserIndicator() {
           <Menu.Content>
             <Menu.Item value="username">
               <Avatar.Root size="xs" shape="rounded" rounded="full">
-                <Avatar.Image src={session.picture} />
+                {session.picture && <Avatar.Image src={session.picture} />}
                 <Avatar.Fallback name={session.name} />
               </Avatar.Root>
-              <Text>{session.username}</Text>
+              <Text>{session.name}</Text>
             </Menu.Item>
             <Menu.Separator />
             <Menu.Item asChild value="signOut">

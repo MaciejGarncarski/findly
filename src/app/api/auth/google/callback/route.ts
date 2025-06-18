@@ -1,4 +1,6 @@
 import { env } from "@/config/env";
+import { db } from "@/db";
+import { usersTable } from "@/db/schema";
 import { createSession } from "@/features/auth/api/session";
 import { redirect } from "next/navigation";
 import type { NextRequest } from "next/server";
@@ -42,15 +44,29 @@ export async function GET(req: NextRequest) {
     });
   }
 
-  const { email, id, name, picture } = await getUserInfo({
+  const { email, name, picture } = await getUserInfo({
     accessToken: parsedTokenData.data.access_token,
   });
 
+  const insertedData = await db
+    .insert(usersTable)
+    .values({
+      email,
+      name,
+      picture,
+    })
+    .onConflictDoUpdate({
+      target: usersTable.id,
+      set: {
+        email,
+        name,
+        picture,
+      },
+    })
+    .returning({ insertedId: usersTable.id });
+
   await createSession({
-    email,
-    picture,
-    name,
-    userId: id,
+    userId: insertedData[0].insertedId,
   });
 
   if (parsedState.appCbUrl) {
