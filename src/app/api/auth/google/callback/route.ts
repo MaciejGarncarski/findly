@@ -48,32 +48,40 @@ export async function GET(req: NextRequest) {
     accessToken: parsedTokenData.data.access_token,
   });
 
-  const insertedData = await db
-    .insert(usersTable)
-    .values({
-      email,
-      name,
-      picture,
-    })
-    .onConflictDoUpdate({
-      target: usersTable.id,
-      set: {
+  const user = await db
+    .select({ email: usersTable.email, id: usersTable.id })
+    .from(usersTable)
+    .limit(1);
+
+  const doUserExist = Boolean(user[0].email);
+
+  if (!doUserExist) {
+    const insertedData = await db
+      .insert(usersTable)
+      .values({
         email,
         name,
         picture,
-      },
-    })
-    .returning({ insertedId: usersTable.id });
+      })
 
-  await createSession({
-    userId: insertedData[0].insertedId,
-  });
+      .returning({ insertedId: usersTable.id });
 
-  if (parsedState.appCbUrl) {
-    return redirect(parsedState.appCbUrl);
+    await createSession({
+      userId: insertedData[0].insertedId,
+    });
   }
 
-  return redirect("/");
+  if (doUserExist) {
+    await createSession({
+      userId: user[0].id,
+    });
+  }
+
+  if (parsedState.appCbUrl) {
+    redirect(parsedState.appCbUrl);
+  }
+
+  redirect("/");
 }
 
 type GetUserInfoData = {

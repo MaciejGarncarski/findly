@@ -17,6 +17,7 @@ services:
     networks:
       - app-network
     volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - findly-db-data:/var/lib/postgresql/data
   app:
     container_name: findly-app-prod
