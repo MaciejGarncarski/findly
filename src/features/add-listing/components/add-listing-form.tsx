@@ -1,3 +1,5 @@
+import { db } from "@/db";
+import { posts } from "@/db/schema";
 import {
   Button,
   Field,
@@ -8,9 +10,19 @@ import {
 } from "@chakra-ui/react";
 import Form from "next/form";
 
+async function TO_BE_CHANGED_addListing() {
+  "use server";
+
+  await db.insert(posts).values({
+    title: "TEST_ITEM",
+    description: "TEST_DESCR",
+    categoryId: 1,
+  });
+}
+
 export function AddListingForm() {
   return (
-    <Form action="/">
+    <Form action={TO_BE_CHANGED_addListing}>
       <Fieldset.Root size="lg" maxW="md">
         <Stack>
           <Fieldset.Legend>Add Listing</Fieldset.Legend>

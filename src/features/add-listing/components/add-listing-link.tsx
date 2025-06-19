@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function AddListingLink() {
   return (
-    <Button asChild size="sm" variant={"surface"}>
+    <Button asChild variant="solid" rounded={"lg"} size="sm">
       <Link href={"/adding"}>Add listing</Link>
     </Button>
   );

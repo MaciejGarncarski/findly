@@ -1,6 +1,6 @@
 import { env } from "@/config/env";
 import { db } from "@/db";
-import { usersTable } from "@/db/schema";
+import { users } from "@/db/schema";
 import { createSession } from "@/features/auth/api/session";
 import { redirect } from "next/navigation";
 import type { NextRequest } from "next/server";
@@ -49,22 +49,22 @@ export async function GET(req: NextRequest) {
   });
 
   const user = await db
-    .select({ email: usersTable.email, id: usersTable.id })
-    .from(usersTable)
+    .select({ email: users.email, id: users.id })
+    .from(users)
     .limit(1);
 
-  const doUserExist = Boolean(user[0].email);
+  const doUserExist = Boolean(user[0]?.email);
 
   if (!doUserExist) {
     const insertedData = await db
-      .insert(usersTable)
+      .insert(users)
       .values({
         email,
         name,
         picture,
       })
 
-      .returning({ insertedId: usersTable.id });
+      .returning({ insertedId: users.id });
 
     await createSession({
       userId: insertedData[0].insertedId,

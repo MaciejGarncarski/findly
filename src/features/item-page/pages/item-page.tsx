@@ -6,7 +6,9 @@ import { DeliveryCard } from "@/features/item-page/components/delivery-card";
 import { PostImageCard } from "@/features/item-page/components/post-image-card";
 import { DescriptionCard } from "@/features/item-page/components/description-card";
 
-export function ItemPage() {
+export async function ItemPage() {
+  await new Promise((res) => setTimeout(res, 1500));
+
   return (
     <Flex
       maxW="6xl"

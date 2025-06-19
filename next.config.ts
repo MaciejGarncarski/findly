@@ -3,6 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig = (phase: string): NextConfig => {
   return {
     experimental: {
+      dynamicIO: true,
+      useCache: true,
       optimizePackageImports: ["@chakra-ui/react"],
     },
     output: "standalone",

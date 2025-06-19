@@ -38,14 +38,15 @@ const featuredCategories = [
 
 async function getListings(): Promise<Record<string, number>> {
   return {
-    job: Math.floor(Math.random() * 100),
-    "real-estate": Math.floor(Math.random() * 300),
-    service: Math.floor(Math.random() * 200),
-    electronics: Math.floor(Math.random() * 400),
+    job: 200,
+    "real-estate": 100,
+    service: 300,
+    electronics: 222,
   };
 }
 
 export async function Categories() {
+  await new Promise((res) => setTimeout(res, 1500));
   const listings = await getListings();
 
   return (
