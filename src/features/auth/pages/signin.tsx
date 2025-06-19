@@ -2,17 +2,18 @@
 
 import { Button, Flex, Heading } from "@chakra-ui/react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
-export function SignIn({
-  callbackURL,
-}: {
-  callbackURL: string | string[] | undefined;
-}) {
+export function SignIn() {
+  const params = useSearchParams();
+
   return (
     <Flex flexDir={"column"} gap="4" alignItems={"center"}>
       <Heading as="h1">Sign in</Heading>
       <Button asChild>
-        <Link href={`/api/auth/google?appCbUrl=${callbackURL || "/"}`}>
+        <Link
+          href={`/api/auth/google?appCbUrl=${params.get("callbackUrl") || "/"}`}
+        >
           Continue with Google
         </Link>
       </Button>
