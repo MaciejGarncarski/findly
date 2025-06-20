@@ -22,7 +22,7 @@ export async function UserIndicator() {
           <Menu.Content>
             <Menu.Item value="username" asChild rounded={"lg"}>
               <Link href="/account">
-                <Avatar.Root size="xs" shape="rounded" rounded="full">
+                <Avatar.Root size="2xs" shape="rounded" rounded="full">
                   {session.picture && <Avatar.Image src={session.picture} />}
                   <Avatar.Fallback name={session.name} />
                 </Avatar.Root>

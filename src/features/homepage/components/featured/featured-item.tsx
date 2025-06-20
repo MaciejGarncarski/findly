@@ -61,7 +61,7 @@ export function FeaturedItem() {
           </Text>
 
           <Button asChild size="sm" variant={"subtle"} rounded={"full"}>
-            <Link href="/browse/itemslug">View details</Link>
+            <Link href="/browse/1">View details</Link>
           </Button>
         </Flex>
       </Flex>

@@ -1,19 +1,15 @@
-import { Badge, Box, Flex, Heading, Icon, Show, Text } from "@chakra-ui/react";
+import { Badge, Box, Flex, Heading, Icon, Text } from "@chakra-ui/react";
 import Image from "next/image";
 
 import placeholder from "@/assets/placeholder.svg";
 import Link from "next/link";
 import { Calendar, MapPin } from "lucide-react";
-import { getSessionUser } from "@/features/auth/api/get-session-user";
-import { DeleteBtn } from "@/features/browse/components/delete-btn";
 
 type Props = {
   id: number;
 };
 
 export async function Item({ id }: Props) {
-  const session = await getSessionUser();
-
   return (
     <Box
       asChild
@@ -21,7 +17,7 @@ export async function Item({ id }: Props) {
       justifyContent={"center"}
       alignItems={"center"}
     >
-      <Link href="/browse/item">
+      <Link href={`/browse/${id}`}>
         <Flex
           flexDir={"column"}
           rounded={"2xl"}
@@ -37,9 +33,6 @@ export async function Item({ id }: Props) {
             shadow: "xl",
           }}
         >
-          <Show when={session?.role === "ADMIN"}>
-            <DeleteBtn id={id} />
-          </Show>
           <Box position={"relative"} h="40" aspectRatio={"1"} w="full">
             <Image
               style={{ objectFit: "cover" }}

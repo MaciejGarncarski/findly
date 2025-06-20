@@ -3,7 +3,7 @@ import "server-only";
 
 import { cookies } from "next/headers";
 import { decrypt } from "@/features/auth/api/session";
-import { db } from "@/db";
+import { db } from "@/db/client";
 import { users } from "@/db/schema";
 import { eq } from "drizzle-orm";
 

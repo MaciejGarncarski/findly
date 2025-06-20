@@ -1,6 +1,6 @@
 import { Box, EmptyState, Show } from "@chakra-ui/react";
 import { Item } from "@/features/browse/components/item/item";
-import { db } from "@/db";
+import { db } from "@/db/client";
 import { posts } from "@/db/schema";
 import { FrownIcon } from "lucide-react";
 

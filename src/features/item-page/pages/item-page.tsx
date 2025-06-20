@@ -1,13 +1,19 @@
-import { Box, Breadcrumb, Flex, Stack } from "@chakra-ui/react";
+import { Box, Breadcrumb, Flex, Show, Stack } from "@chakra-ui/react";
 import Link from "next/link";
 
 import { ContactCard } from "@/features/item-page/components/contact-card";
 import { DeliveryCard } from "@/features/item-page/components/delivery-card";
 import { PostImageCard } from "@/features/item-page/components/post-image-card";
 import { DescriptionCard } from "@/features/item-page/components/description-card";
+import { DeleteBtn } from "@/features/browse/components/delete-btn";
+import { getSessionUser } from "@/features/auth/api/get-session-user";
 
-export async function ItemPage() {
-  await new Promise((res) => setTimeout(res, 1500));
+type Props = {
+  id: number;
+};
+
+export async function ItemPage({ id }: Props) {
+  const session = await getSessionUser();
 
   return (
     <Flex
@@ -67,6 +73,9 @@ export async function ItemPage() {
             position: "sticky",
           }}
         >
+          <Show when={session?.role === "ADMIN"}>
+            <DeleteBtn id={id} />
+          </Show>
           <ContactCard />
           <DeliveryCard />
         </Flex>

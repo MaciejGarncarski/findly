@@ -1,5 +1,5 @@
 import { env } from "@/config/env";
-import { db } from "@/db";
+import { db } from "@/db/client";
 import { users } from "@/db/schema";
 import { createSession } from "@/features/auth/api/session";
 import { redirect } from "next/navigation";

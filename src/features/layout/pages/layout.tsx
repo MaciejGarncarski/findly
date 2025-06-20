@@ -1,6 +1,6 @@
 import { Footer } from "@/components/footer";
 import { ColorModeButton } from "@/components/ui/color-mode";
-import { Box, Flex, Heading, VisuallyHidden } from "@chakra-ui/react";
+import { Box, Flex, Heading, Skeleton, VisuallyHidden } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { ReactNode, Suspense } from "react";
@@ -44,7 +44,7 @@ export function Layout({ children }: { children: ReactNode }) {
           <Flex gap="8" alignItems={"center"}>
             <NavbarDesktop />
             <ColorModeButton />
-            <Suspense fallback={<p>loading</p>}>
+            <Suspense fallback={<Skeleton h="8" w="16" />}>
               <UserIndicator />
             </Suspense>
             <AddListingLink />

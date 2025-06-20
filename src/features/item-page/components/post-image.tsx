@@ -89,7 +89,9 @@ export function PostImage() {
           src={currentImage ? currentImage.url : placeholder}
           fill
           alt=""
-          objectFit="cover"
+          style={{
+            objectFit: "cover",
+          }}
         />
       </Box>
     </Box>

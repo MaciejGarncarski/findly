@@ -1,4 +1,4 @@
-import { db } from "@/db";
+import { db } from "@/db/client";
 import { posts } from "@/db/schema";
 import {
   Button,
@@ -9,6 +9,7 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import Form from "next/form";
+import { redirect } from "next/navigation";
 
 async function TO_BE_CHANGED_addListing() {
   "use server";
@@ -18,6 +19,7 @@ async function TO_BE_CHANGED_addListing() {
     description: "TEST_DESCR",
     categoryId: 1,
   });
+  redirect("/browse");
 }
 
 export function AddListingForm() {

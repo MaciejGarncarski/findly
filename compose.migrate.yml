@@ -20,31 +20,18 @@ services:
       - findly-db-data:/var/lib/postgresql/data
 
   app:
-    container_name: findly-app-prod
-    image: ghcr.io/maciejgarncarski/findly:latest
-    pull_policy: always
+    container_name: findly-migrate
     build:
       context: .
-      dockerfile: docker/Dockerfile.prod
+      dockerfile: docker/Dockerfile.migrations
     depends_on:
       - db
-    ports:
-      - "3010:3000"
     volumes:
       - /app/node_modules
     networks:
       - app-network
     environment:
-      - NEXT_TELEMETRY_DISABLED=1
       - DATABASE_URL=postgresql://postgres:postgres@db/findly?schema=public
-      - NODE_ENV=production
-      - SESSION_SECRET=${SESSION_SECRET:?SESSION_SECRET_NOT_SET}
-      - APP_ORIGIN=${APP_ORIGIN}
-      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
-      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
-      - GOOGLE_OAUTH_URL=${GOOGLE_OAUTH_URL}
-      - GOOGLE_CALLBACK_URL=${GOOGLE_CALLBACK_URL}
-      - GOOGLE_ACCESS_TOKEN_URL=${GOOGLE_ACCESS_TOKEN_URL}
 
 networks:
   app-network:
