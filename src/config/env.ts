@@ -2,7 +2,7 @@ import { z } from "zod";
 import { PHASE_PRODUCTION_BUILD } from "next/constants";
 
 const envSchema = z.object({
-  SESSION_SECRET: z.string(),
+  ACCESS_TOKEN_SECRET: z.string(),
   APP_ORIGIN: z.string().startsWith("http"),
   GOOGLE_CLIENT_ID: z.string(),
   GOOGLE_CLIENT_SECRET: z.string(),

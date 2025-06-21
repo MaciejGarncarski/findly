@@ -2,16 +2,15 @@
 import "server-only";
 
 import { cookies } from "next/headers";
-import { decrypt } from "@/features/auth/api/session";
 import { db } from "@/db/client";
 import { users } from "@/db/schema";
 import { eq } from "drizzle-orm";
+import { decryptAccessToken } from "@/features/auth/api/session";
 
 export async function getSessionUser() {
   const cookieStore = await cookies();
-  const sessionValue = cookieStore.get("session")?.value;
-
-  const decryptedSessionData = await decrypt(sessionValue);
+  const sessionValue = cookieStore.get("access_token")?.value;
+  const decryptedSessionData = await decryptAccessToken(sessionValue);
 
   if (!decryptedSessionData) {
     return null;

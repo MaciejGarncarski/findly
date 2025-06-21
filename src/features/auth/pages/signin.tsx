@@ -9,7 +9,9 @@ export function SignIn() {
 
   return (
     <Flex flexDir={"column"} gap="4" alignItems={"center"}>
-      <Heading as="h1">Sign in</Heading>
+      <Heading as="h1" fontSize={"4xl"}>
+        Sign in
+      </Heading>
       <Button asChild>
         <Link
           href={`/api/auth/google?appCbUrl=${params.get("callbackUrl") || "/"}`}

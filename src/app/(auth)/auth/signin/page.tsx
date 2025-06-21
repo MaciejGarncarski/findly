@@ -5,7 +5,7 @@ import { Suspense } from "react";
 export default async function SignInPage() {
   return (
     <Suspense fallback={<Spinner />}>
-      <SignIn />;
+      <SignIn />
     </Suspense>
   );
 }
