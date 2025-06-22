@@ -3,7 +3,7 @@ FROM node:24-alpine AS base
 
 FROM base AS deps
 WORKDIR /app
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
+COPY package.json package-lock.json* .npmrc* ./
 RUN npm ci
 
 FROM base AS builder
@@ -14,14 +14,11 @@ RUN npm run build
 
 FROM base AS runner
 WORKDIR /app
-
 ENV NODE_ENV=production
-
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S tsstart -u 1001
 
-COPY --from=builder /app/public ./public
-
+COPY --from=builder --chown=tsstart:nodejs /app/public ./public
 COPY --from=builder --chown=tsstart:nodejs /app/.tanstack/start/build ./.tanstack/start/build
 COPY --from=builder --chown=tsstart:nodejs /app/.output ./.output
 COPY --from=deps /app/node_modules ./node_modules
