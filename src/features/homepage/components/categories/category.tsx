@@ -18,7 +18,8 @@ export function Category({
   icon: ReactIcon,
 }: Props) {
   return (
-    <Link to={`/browse?c=${category}`}>
+    // <Link to={`/browse?c=${category}`}>
+    <Link to="/browse">
       <Flex
         bg="bg"
         mx="auto"

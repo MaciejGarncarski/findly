@@ -5,8 +5,8 @@ import { redirect } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 
 export const deleteListing = createServerFn({ method: "POST" })
-  .validator((data) => {
-    return data.postId as number;
+  .validator((data: { postId: number }) => {
+    return data.postId;
   })
   .handler(async ({ data }) => {
     await db.delete(posts).where(eq(posts.id, data));
