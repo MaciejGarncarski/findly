@@ -6,8 +6,11 @@ import { db } from "@/db/client";
 import { users } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { decryptAccessToken } from "@/features/auth/api/session";
+import { cache } from "react";
 
-export async function getSessionUser() {
+export const getSessionUser = cache(async () => {
+  console.log("getSessionUser", Math.random());
+
   const cookieStore = await cookies();
   const sessionValue = cookieStore.get("access_token")?.value;
   const decryptedSessionData = await decryptAccessToken(sessionValue);
@@ -37,3 +40,4 @@ export async function getSessionUser() {
     return null;
   }
 }
+)

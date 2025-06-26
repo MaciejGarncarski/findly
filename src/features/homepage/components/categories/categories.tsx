@@ -1,3 +1,5 @@
+import { db } from "@/db/client";
+import { categories } from "@/db/schema";
 import { Category } from "@/features/homepage/components/categories/category";
 import { Box } from "@chakra-ui/react";
 import { Briefcase, House, LucideIcon, Smartphone, Wrench } from "lucide-react";
@@ -37,6 +39,12 @@ const featuredCategories = [
 ] satisfies Categories;
 
 async function getListings(): Promise<Record<string, number>> {
+  const categoriesData = await db.select({name: categories.name}).from(categories).limit(4);
+
+
+  console.log(categoriesData);
+
+
   return {
     job: 200,
     "real-estate": 100,
