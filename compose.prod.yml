@@ -20,9 +20,11 @@ services:
       - findly-db-data:/var/lib/postgresql/data
 
   migrations:
+    container_name: findly-migrations-prod
+    image: ghcr.io/maciejgarncarski/findly-migrations:latest
+    pull_policy: always
     depends_on:
       - db
-    container_name: findly-migrations-prod
     build:
       context: .
       dockerfile: docker/Dockerfile.migrations
