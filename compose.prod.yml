@@ -19,6 +19,18 @@ services:
     volumes:
       - findly-db-data:/var/lib/postgresql/data
 
+  migrations:
+    depends_on:
+      - db
+    container_name: findly-migrations-prod
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.migrations
+    networks:
+      - app-network
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db/findly?schema=public
+
   app:
     container_name: findly-app-prod
     image: ghcr.io/maciejgarncarski/findly:latest
@@ -27,7 +39,7 @@ services:
       context: .
       dockerfile: docker/Dockerfile.prod
     depends_on:
-      - db
+      - migrations
     ports:
       - "3010:3000"
     volumes:

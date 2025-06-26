@@ -2,7 +2,6 @@
 FROM node:24-alpine AS deps
 
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm install
+RUN npm install drizzle-orm pg dotenv drizzle-kit
 COPY . .
-CMD ["npx", "tsx", "src/db/migrate.ts"]
+CMD ["node", "--experimental-strip-types", "src/db/migrate.ts"]

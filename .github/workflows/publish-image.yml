@@ -15,6 +15,9 @@ jobs:
           - dockerfile: ./docker/Dockerfile.prod
             appname: maciejgarncarski/findly
             image: ghcr.io/maciejgarncarski/findly
+          - dockerfile: ./docker/Dockerfile.migrations
+            appname: maciejgarncarski/findly-migrations
+            image: ghcr.io/maciejgarncarski/findly-migrations
 
     permissions:
       contents: read
